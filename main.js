@@ -34,7 +34,7 @@ function runGame() {
 			var guessObject = currentWord.charInWord(answer.guess)
 			var newDisplayWord = currentLetter.updateDisplay(guessObject)
 			console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
-			console.log('Win?', currentWord.checkWon())
+			// console.log('Win?', currentWord.checkWon())
 			counter -= 1
 			if (counter > 0) {
 				runGame()
