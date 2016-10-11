@@ -2,19 +2,25 @@
 var inquirer = require('inquirer')
 var randomWord = require('./game.js')
 console.log('Console Log from main.js:', randomWord)
-console.log(typeof randomWord)
+// console.log(typeof randomWord)
 
 var Word = require('./word.js')
-var currentWord = new Word(randomWord)
-console.log(currentWord.letterArray)
-console.log(currentWord.charInWord())
-console.log(currentWord.letterArray)
-console.log(currentWord.checkWon())
+var Letter = require('./letter.js')
+var currentWord = new Word(randomWord, undefined)
+var currentLetter = new Letter(randomWord)
+// console.log(currentWord.letterArray)
+// console.log(currentWord.charInWord())
+// console.log(currentWord.letterArray)
+// console.log(currentWord.checkWon())
 
 var counter = 15
 
 function runGame() {
-	while (counter > 0) {
+	if (counter > 0) {
+		if (counter == 15) {
+			var blankWord = currentLetter.initialDisplay()
+			console.log('blankWord (the value returned by initialDisplay() ) is now:', blankWord)
+		}
 		console.log(currentWord.letterArray)
 		inquirer.prompt([
 		{
@@ -24,7 +30,10 @@ function runGame() {
 		}
 			])
 		.then(function(answer) {
-			currentWord.charInWord()
+			console.log('Answer.guess is:', answer.guess)
+			var guessObject = currentWord.charInWord(answer.guess)
+			var newDisplayWord = currentLetter.updateDisplay(guessObject)
+			console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
 			console.log('Win?', currentWord.checkWon())
 			counter -= 1
 			if (counter > 0) {
