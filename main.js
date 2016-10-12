@@ -45,7 +45,12 @@ function runGame() {
 				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
 				counter -= 1
 			}
-			// console.log('Win?', currentWord.checkWon())
+			console.log('word arry from letters:', currentLetter.wordArray)
+			console.log('Win?', currentLetter.checkWin())
+			if(currentLetter.checkWin()) {
+				console.log('You Won! Feel free to play again!')
+				counter = 0
+			}
 			if (counter > 0) {
 				runGame()
 			}

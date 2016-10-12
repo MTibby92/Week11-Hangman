@@ -3,6 +3,7 @@ module.exports = function Letter(ranWord) {
 	this.word = ranWord
 	this.wordLength = ranWord.length
 	this.wordArray = undefined
+	this.trackArray = ranWord.split('')
 	this.displayWord = undefined
 	this.initialDisplay = function() {
 		var blankStr = ''
@@ -24,6 +25,7 @@ module.exports = function Letter(ranWord) {
 			for (var i in index) {
 				if (this.wordArray[index[i]] == '-') {
 					this.wordArray[index[i]] = char
+					this.trackArray.pop()
 				}
 			}
 
@@ -39,6 +41,12 @@ module.exports = function Letter(ranWord) {
 			console.log('wordArray on incorrect guess:', this.wordArray)
 			return this.displayWord
 		}
-		
+	}
+	this.checkWin = function() {
+		if (this.trackArray.length == 0) {
+			return true
+		} else {
+			return false
+		}
 	}
 }
