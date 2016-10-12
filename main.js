@@ -32,10 +32,16 @@ function runGame() {
 		.then(function(answer) {
 			console.log('Answer.guess is:', answer.guess)
 			var guessObject = currentWord.charInWord(answer.guess)
-			var newDisplayWord = currentLetter.updateDisplay(guessObject)
-			console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+			if (guessObject.char !== undefined) {
+				var newDisplayWord = currentLetter.updateDisplay(guessObject)
+				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+			} else {
+				console.log('Incorrect guess')
+				var newDisplayWord = currentLetter.updateDisplay(guessObject)
+				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+				counter -= 1
+			}
 			// console.log('Win?', currentWord.checkWon())
-			counter -= 1
 			if (counter > 0) {
 				runGame()
 			}

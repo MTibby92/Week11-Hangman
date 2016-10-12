@@ -13,12 +13,20 @@ module.exports = function Word(random) {
 				removedIndex.push(i)
 			}
 		}
-		var obj = {
-			// char: removed[0],
-			char: this.letterArray[removedIndex[0]],
-			index: removedIndex
+
+		if (removedIndex.length !== 0) {
+			var obj = {
+				// char: removed[0],
+				char: this.letterArray[removedIndex[0]],
+				index: removedIndex
+			}
+			// console.log('removedIndex is', removedIndex)
+		} else {
+			var obj = {
+				char: undefined,
+				index: undefined
+			}
 		}
-		// console.log('removedIndex is', removedIndex)
 		return obj
 	}
 	// this.checkWon = function() {
