@@ -7,7 +7,7 @@ module.exports = function Word(random) {
 		var removedIndex = []
 		for (var i in this.letterArray) {
 			if (this.letterArray[i] == guess) {
-				console.log(i, this.letterArray[i])
+				// console.log(i, this.letterArray[i])
 				// var removed = this.letterArray.splice(i, 1)
 				// this.removedIndex.push(parseInt(i)+this.removedIndex.length)
 				removedIndex.push(i)

@@ -37,8 +37,8 @@ module.exports = function Letter(ranWord) {
 			this.displayWord = updateString
 			return updateString
 		} else {
-			console.log('displayWord on incorrect guess:', this.displayWord)
-			console.log('wordArray on incorrect guess:', this.wordArray)
+			// console.log('displayWord on incorrect guess:', this.displayWord)
+			// console.log('wordArray on incorrect guess:', this.wordArray)
 			return this.displayWord
 		}
 	}
