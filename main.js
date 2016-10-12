@@ -57,12 +57,15 @@ function runGame() {
 			}
 			// console.log('word array from letters:', currentLetter.wordArray)
 			console.log('Win?', currentLetter.checkWin())
-			if(currentLetter.checkWin()) {
-				console.log('You Won! Feel free to play again!')
-				counter = 0
-			}
+			
 			if (counter > 0) {
-				runGame()
+				if(currentLetter.checkWin()) {
+					console.log('You Won! Feel free to play again!')
+				} else {
+					runGame()
+				}
+			} else {
+				console.log('You ran out of guesses, please try again.')
 			} 
 		})
 	}
