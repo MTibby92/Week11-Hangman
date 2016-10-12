@@ -15,8 +15,9 @@ function runGame() {
 	if (counter > 0) {
 		if (counter == 16) {
 			var blankWord = currentLetter.initialDisplay()
-			console.log('blankWord (the value returned by initialDisplay() ) is now:', blankWord)
-			console.log('\n')
+			// console.log('blankWord (the value returned by initialDisplay() ) is now:', blankWord)
+			console.log(blankWord)
+			console.log()
 			counter--
 		}
 		// console.log(currentWord.letterArray)
@@ -50,13 +51,13 @@ function runGame() {
 			if (guessObject.char !== undefined) {
 				var newDisplayWord = currentLetter.updateDisplay(guessObject)
 				currentLetter.displayWord = newDisplayWord
-				// console.log('currentLetter.displayWord is:', currentLetter.displayWord)
-				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+				// console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+				console.log(newDisplayWord)
 			} else {
 				console.log('Incorrect guess')
-				// console.log('currentLetter.displayWord is:', currentLetter.displayWord)
 				var newDisplayWord = currentLetter.updateDisplay(guessObject)
-				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+				// console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
+				console.log(newDisplayWord)
 				counter -= 1
 			}
 			// console.log('word array from letters:', currentLetter.wordArray)
