@@ -27,7 +27,17 @@ function runGame() {
 		{
 			type: 'input',
 			name: 'guess',
-			message: 'Please enter your guess, you have ' + counter + ' tries remaining'
+			message: 'Please enter your guess, you have ' + counter + ' tries remaining',
+			validate: function(value) {
+				if (value.length == 1) {
+					return true
+				}
+
+				return 'Please only enter one character at a time'
+			},
+			filter: function(value) {
+				return value.toLowerCase()
+			}
 		}
 			])
 		.then(function(answer) {
@@ -53,7 +63,7 @@ function runGame() {
 			}
 			if (counter > 0) {
 				runGame()
-			}
+			} 
 		})
 	}
 }
