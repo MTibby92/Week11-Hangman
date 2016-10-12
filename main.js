@@ -16,6 +16,7 @@ function runGame() {
 		if (counter == 16) {
 			var blankWord = currentLetter.initialDisplay()
 			console.log('blankWord (the value returned by initialDisplay() ) is now:', blankWord)
+			console.log('\n')
 			counter--
 		}
 		// console.log(currentWord.letterArray)
@@ -65,6 +66,7 @@ function runGame() {
 				if(currentLetter.checkWin()) {
 					console.log('You Won! Feel free to play again!')
 				} else {
+					console.log('\n')
 					runGame()
 				}
 			} else {
