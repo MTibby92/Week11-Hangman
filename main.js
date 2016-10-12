@@ -13,13 +13,14 @@ var currentLetter = new Letter(randomWord)
 // console.log(currentWord.letterArray)
 // console.log(currentWord.checkWon())
 
-var counter = 15
+var counter = 16
 
 function runGame() {
 	if (counter > 0) {
-		if (counter == 15) {
+		if (counter == 16) {
 			var blankWord = currentLetter.initialDisplay()
 			console.log('blankWord (the value returned by initialDisplay() ) is now:', blankWord)
+			counter--
 		}
 		console.log(currentWord.letterArray)
 		inquirer.prompt([
@@ -34,9 +35,12 @@ function runGame() {
 			var guessObject = currentWord.charInWord(answer.guess)
 			if (guessObject.char !== undefined) {
 				var newDisplayWord = currentLetter.updateDisplay(guessObject)
+				currentLetter.displayWord = newDisplayWord
+				console.log('currentLetter.displayWord is:', currentLetter.displayWord)
 				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
 			} else {
 				console.log('Incorrect guess')
+				console.log('currentLetter.displayWord is:', currentLetter.displayWord)
 				var newDisplayWord = currentLetter.updateDisplay(guessObject)
 				console.log('newDisplayWord (the value returned by updateDisplay() ) is now:', newDisplayWord)
 				counter -= 1
